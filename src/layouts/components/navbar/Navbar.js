@@ -1,18 +1,15 @@
-import React, { useEffect } from "react";
-import { Navbar } from "reactstrap";
-import { connect, useDispatch } from "react-redux";
 import classnames from "classnames";
-import axios from "axios";
+import React from "react";
+import { connect, useDispatch } from "react-redux";
+import { Navbar } from "reactstrap";
+import userImg from "../../../assets/img/portrait/small/avatar-s-11.jpg";
 import { useAuth0 } from "../../../authServices/auth0/auth0Service";
 import {
   // logoutWithJWT,
   logoutWithFirebase,
 } from "../../../redux/actions/auth/loginActions";
-import NavbarUser from "./NavbarUser";
-import userImg from "../../../assets/img/portrait/small/avatar-s-11.jpg";
 import SidebarHeader from "../menu/vertical-menu/SidebarHeader";
-import { rootUrl } from "../../../views/ReusableFunction/Api/ApiFunc";
-import { studentLoginJwtAction } from "../../../redux/actions/SMS/AuthAction/AuthAction";
+import NavbarUser from "./NavbarUser";
 
 const UserName = (props) => {
   const dispatch = useDispatch();
@@ -26,24 +23,6 @@ const UserName = (props) => {
   };
   const token = localStorage.getItem("token");
   const AuthStr = "Bearer " + token;
-
-  // useEffect(()=>{
-  //   axios.get(`${rootUrl}/Account/GetCurrentUser`,{ 'headers': { 'Authorization': AuthStr } })
-  //           .then(res => {
-
-  //             loggedInUser.name = res.data.fullName;
-  //             loggedInUser.id = res.data.id;
-  //             loggedInUser.email = res.data.email;
-  //             // loggedInUser = JSON.stringify(res.data);
-  //             // dispatch({
-  //             //           type: "LOGIN_WITH_JWT",
-  //             //           payload: { loggedInUser, loggedInWith: "jwt" }
-  //             //         })
-
-  //             dispatch(studentLoginJwtAction(loggedInUser));
-
-  //           })
-  // },[])
 
   let username = "";
   const userObj = props.user.login.values;

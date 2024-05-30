@@ -1,31 +1,10 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  Row,
-  Col,
-  Nav,
-  NavItem,
-  NavLink,
-  TabContent,
-  TabPane,
-} from "reactstrap";
-import classnames from "classnames";
-import loginImg from "../../../../assets/img/pages/login.png";
-import "../../../../assets/scss/pages/authentication.scss";
-import LoginAuth0 from "./LoginAuth0";
-import LoginFirebase from "./LoginFirebase";
-import StudentLoginJWT from "./StudentLoginJWT";
-import ThemeNavbar from "../../../../layouts/components/navbar/Navbar";
-import NavbarUser from "../../../../layouts/components/navbar/NavbarUser";
-import LoginNavbar from "./LoginNavbar";
-import { Height } from "@material-ui/icons";
+import { Col, Row } from "reactstrap";
 import UappLogo from "../../../../assets/img/Asset 12Icon.svg";
-import Lgimage from "../../../../assets/img/Asset 12Icon.svg";
-import Footer from "../../../../layouts/components/footer/Footer";
+import "../../../../assets/scss/pages/authentication.scss";
+import BTRCLoginJWT from "./BTRCLoginJWT";
 
-class StudentLogin extends React.Component {
+class BTRCLogin extends React.Component {
   state = {
     activeTab: "1",
   };
@@ -85,7 +64,7 @@ class StudentLogin extends React.Component {
                     className="flexbox-container2"
                     style={{ backgroundColor: "#fff" }}
                   >
-                    <StudentLoginJWT />
+                    <BTRCLoginJWT />
                   </div>
                 </div>
               </Col>
@@ -98,4 +77,4 @@ class StudentLogin extends React.Component {
     );
   }
 }
-export default StudentLogin;
+export default BTRCLogin;

@@ -23,17 +23,6 @@ class Login extends React.Component {
     GeoLocationInfo: "",
   };
 
-  // componentDidMount() {
-  //   fetch(`https://geolocation-db.com/json/`)
-  //     .then((res) => res?.json())
-  //     .then((data) => {
-  //       this.setState({
-  //         IpAddress: data?.IPv4,
-  //         GeoLocationInfo: `latitude ${data?.latitude}, longitude ${data?.longitude} `,
-  //       });
-  //     });
-  // }
-
   antIcon = (
     <LoadingOutlined
       style={{ fontSize: 35, color: "white", fontWeight: "bold" }}

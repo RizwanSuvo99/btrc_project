@@ -1,4 +1,4 @@
-export const studentLoginJwtAction = (data) => {
+export const BTRCLoginJwtAction = (data) => {
 
     return {
       type: 'LOGIN_WITH_JWT',
