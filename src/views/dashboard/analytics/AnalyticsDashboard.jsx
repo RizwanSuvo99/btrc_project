@@ -11,7 +11,7 @@ const AnalyticsDashboard = () => {
   return (
     <>
       {/* <SuperAdmin /> */}
-      
+
       <Card className="analyticsDashboard">
         <Card.Body>
           <Card.Title>

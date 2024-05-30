@@ -1,24 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  UncontrolledDropdown,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
-  Media,
-  Badge,
-} from "reactstrap";
-import PerfectScrollbar from "react-perfect-scrollbar";
 import axios from "axios";
+import React from "react";
 import * as Icon from "react-feather";
-import { useAuth0 } from "../../../authServices/auth0/auth0Service";
-import { history } from "../../../history";
-import { studentLogOutJwtAction } from "../../../redux/actions/SMS/AuthAction/AuthAction";
-import { logOut, rootUrl } from "../../../constants/constants";
-import { userTypes } from "../../../constants/userTypeConstant";
-import { HubConnectionBuilder } from "@microsoft/signalr";
-import { Link } from "react-router-dom";
-import get from "../../../helpers/get";
+import {
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  UncontrolledDropdown,
+} from "reactstrap";
 import user from "../../../assets/img/Uapp_fav.png";
+import { rootUrl } from "../../../constants/constants";
+import { userTypes } from "../../../constants/userTypeConstant";
+import { history } from "../../../history";
 
 const handleNavigation = (e, path) => {
   e.preventDefault();
@@ -211,41 +203,9 @@ const convertToConsultantAccount = (e) => {
     })
     .catch();
 };
-
-// const goToLoginHistory = () => {
-//   history.push("/loginHistory");
-// };
-
-// const goToSettings = () => {
-//   history.push(`/accountSettings/${userInfo?.referenceId}`);
-// };
-
 const UserDropdown = (props) => {
   return (
     <DropdownMenu right>
-      {userInfo?.userTypeId == userTypes?.SystemAdmin ? null : (
-        <Link style={{ textDecoration: "none" }} to="/profile">
-          <DropdownItem
-            tag="a"
-            // href="#"
-            // onClick={redirectToProfile}
-          >
-            <Icon.User size={14} className="mr-1 align-middle" />
-            <span className="align-middle">Profile</span>
-          </DropdownItem>
-        </Link>
-      )}
-
-      {/* <DropdownItem tag="a" onClick={goToSettings}>
-        <Icon.Settings size={14} className="mr-1 align-middle" />
-        <span className="align-middle">Settings</span>
-      </DropdownItem> */}
-
-      {/* <DropdownItem tag="a" onClick={goToLoginHistory}>
-        <Icon.LogIn size={14} className="mr-1 align-middle" />
-        <span className="align-middle">Login History</span>
-      </DropdownItem> */}
-
       <DropdownItem divider />
 
       {userInfo?.userTypeId == userTypes?.Student ? (
@@ -448,153 +408,6 @@ class NavbarUser extends React.PureComponent {
   render() {
     return (
       <ul className="nav navbar-nav navbar-nav-user float-right">
-        {/* Message Dropdown */}
-        {/* <UncontrolledDropdown
-          tag="li"
-          className="dropdown-notification nav-item"
-        >
-          <DropdownToggle tag="a" className="nav-link nav-link-label">
-            
-            <i class="fa-regular fa-message fa-20px"></i>
-            <Badge pill color="primary" className="badge-up">
-              {" "}
-              {this?.state?.notificationCount}{" "}
-            </Badge>
-          </DropdownToggle>
-          <DropdownMenu tag="ul" right className="dropdown-menu-media notification-menu-style" >
-            <li className="dropdown-menu-header">
-             <div className="d-flex justify-content-between">
-             <div className="dropdown-header mt-0">
-                <h6 className=" notification-title text-white">{this?.state?.notificationCount} Unread Notifications</h6>
-                
-              </div>
-              <div className="dropdown-header mt-0" style={{cursor: 'pointer'}}>
-             
-                
-              </div>
-             </div>
-            </li>
-            <PerfectScrollbar
-              className="media-list overflow-hidden position-relative"
-              options={{
-                wheelPropagation: false
-              }}
-            >
-             {
-               this.state.notificationData?.map((data,i) => (
-                  <div id={i} 
-               
-                  
-                   className={data?.isSeen? 'd-flex justify-content-between notification-active-style': 'd-flex justify-content-between notification-inactive-style'}>
-                <Media className="d-flex align-items-start">
-                  
-                
-                 <Media body>
-                    <Media style={{color: '#1e98b0'}} heading className=" media-heading" tag="h6" onClick={()=>this.redirect(data)}>
-                      {data?.title}
-                    </Media>
-                    <p className="notification-text">
-                      {data?.description}
-                    </p>
-                  </Media>
-                  <small>
-                   
-                  
-                 
-                  </small>
-                 
-                </Media>
-              </div> 
-               ))
-             }
-           
-             
-            
-             
-            </PerfectScrollbar>
-            <li className="dropdown-menu-footer">
-              <div className="p-3 notification-footer-style text-center dropdown-bottom-header" onClick={()=>this.allNotifications()}>
-                <span className="align-middle">Read All</span>
-              </div>
-            </li>
-          </DropdownMenu>
-        </UncontrolledDropdown> */}
-        {/* message dropdown end */}
-
-        <UncontrolledDropdown
-          tag="li"
-          className="dropdown-notification nav-item"
-        >
-          <DropdownToggle tag="a" className="nav-link nav-link-label">
-            {/*<Icon.Bell size={21} />*/}
-            <i className="far fa-bell fa-20px"></i>
-            <Badge pill color="primary" className="badge-up">
-              {" "}
-              {this?.state?.notificationCount}{" "}
-            </Badge>
-          </DropdownToggle>
-          <DropdownMenu
-            tag="ul"
-            right
-            className="dropdown-menu-media notification-menu-style"
-          >
-            <li className="dropdown-menu-header">
-              <div className="d-flex justify-content-between">
-                <div className="dropdown-header mt-0">
-                  <h6 className=" notification-title text-white">
-                    {this?.state?.notificationCount} Unread Notifications
-                  </h6>
-                </div>
-                <div
-                  className="dropdown-header mt-0"
-                  style={{ cursor: "pointer" }}
-                ></div>
-              </div>
-            </li>
-            <PerfectScrollbar
-              className="media-list overflow-hidden position-relative"
-              options={{
-                wheelPropagation: false,
-              }}
-            >
-              {this.state.notificationData?.map((data, i) => (
-                <div
-                  id={i}
-                  className={
-                    data?.isSeen
-                      ? "d-flex justify-content-between notification-active-style"
-                      : "d-flex justify-content-between notification-inactive-style"
-                  }
-                >
-                  <Media className="d-flex align-items-start">
-                    <Media body>
-                      <Media
-                        style={{ color: "#1e98b0" }}
-                        heading
-                        className=" media-heading"
-                        tag="h6"
-                        onClick={() => this.redirect(data)}
-                      >
-                        {data?.title}
-                      </Media>
-                      <p className="notification-text">{data?.description}</p>
-                    </Media>
-                    <small>{/* {this.handleDate(data?.createdOn)} */}</small>
-                  </Media>
-                </div>
-              ))}
-            </PerfectScrollbar>
-            <li className="dropdown-menu-footer">
-              <div
-                className="p-3 notification-footer-style text-center dropdown-bottom-header"
-                onClick={() => this.allNotifications()}
-              >
-                <span className="align-middle">Read All</span>
-              </div>
-            </li>
-          </DropdownMenu>
-        </UncontrolledDropdown>
-
         <UncontrolledDropdown tag="li" className="dropdown-user nav-item">
           <DropdownToggle tag="a" className="nav-link dropdown-user-link">
             <div className="user-nav d-sm-flex d-none">

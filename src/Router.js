@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { connect } from "react-redux";
-import { Redirect, Route, Router, Switch } from "react-router-dom";
+import { Route, Router, Switch } from "react-router-dom";
 import Spinner from "./components/core/spinner/Loading-spinner";
 import { history } from "./history";
 import { ContextLayout } from "./utility/context/Layout";
@@ -10,7 +10,6 @@ import "./assets/CoustomStyle/pageView.css";
 import "./assets/CoustomStyle/style.css";
 
 // Authentication Checking
-
 const token = localStorage.getItem("userInfo");
 const isAuth = token != null ? true : false;
 
@@ -19,9 +18,9 @@ const analyticsDashboard = lazy(() =>
   import("./views/dashboard/analytics/AnalyticsDashboard")
 );
 
-// const forgotPassword = lazy(() =>
-//   import("./views/pages/authentication/ForgotPassword")
-// );
+const forgotPassword = lazy(() =>
+  import("./views/pages/authentication/ForgotPassword")
+);
 // const lockScreen = lazy(() =>
 //   import("./views/pages/authentication/LockScreen")
 // );
@@ -82,21 +81,14 @@ const AppRoute = connect(mapStateToProps)(RouteConfig);
 class AppRouter extends React.Component {
   render() {
     return (
-      // Set the directory path if you are deploying in sub-folder
       <>
-        {/* services Client Routing */}
         {isAuth ? (
           <>
             <Router history={history}>
               <ToastProvider autoDismiss={true}>
                 <Switch>
                   <AppRoute exact path="/" component={analyticsDashboard} />
-
                   <AppRoute path="/400" component={BadRequest} fullLayout />
-
-                  {/* Session Expired  */}
-                  {/* <AppRoute path='/sessionExpired' component={SessionExpired} fullLayout /> */}
-
                   <AppRoute component={notFound} fullLayout />
                 </Switch>
               </ToastProvider>
@@ -107,14 +99,9 @@ class AppRouter extends React.Component {
             <Router history={history}>
               <ToastProvider autoDismiss={true}>
                 <Switch>
+                  <AppRoute exact path="/" component={BTRCLogin} fullLayout />
+                  {/* 
                   <AppRoute
-                    exact
-                    path="/"
-                    component={BTRCLogin}
-                    fullLayout
-                  />
-
-                  {/* <AppRoute
                     path="/studentRegister"
                     component={StudentRegister}
                     fullLayout
@@ -128,14 +115,14 @@ class AppRouter extends React.Component {
                     path="/providerRegister"
                     component={ProviderRegister}
                     fullLayout
-                  />
+                  /> */}
 
                   <AppRoute
                     path="/pages/forgot-password"
                     component={forgotPassword}
                     fullLayout
                   />
-                  <AppRoute
+                  {/* <AppRoute
                     path="/pages/lock-screen"
                     component={lockScreen}
                     fullLayout

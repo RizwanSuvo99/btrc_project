@@ -8,6 +8,7 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import React, { useEffect, useState } from "react";
 import fetchData from "../../../apiServices/E1DataServices/GetE1Data";
+import E1DataServices from "../../../apiServices/E1DataServices/GetE1Data";
 
 export default function AnalyticsTable() {
   const [e1Data, setE1Data] = useState([]);
@@ -16,7 +17,7 @@ export default function AnalyticsTable() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const result = await fetchData();
+        const result = await E1DataServices.fetchE1Data();
         setE1Data(result);
       } catch (err) {
         console.log("Error Fetching Data: " + err);

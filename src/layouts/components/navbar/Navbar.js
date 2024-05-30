@@ -24,6 +24,24 @@ const UserName = (props) => {
   const token = localStorage.getItem("token");
   const AuthStr = "Bearer " + token;
 
+  // useEffect(()=>{
+  //   axios.get(`${rootUrl}/Account/GetCurrentUser`,{ 'headers': { 'Authorization': AuthStr } })
+  //           .then(res => {
+
+  //             loggedInUser.name = res.data.fullName;
+  //             loggedInUser.id = res.data.id;
+  //             loggedInUser.email = res.data.email;
+  //             // loggedInUser = JSON.stringify(res.data);
+  //             // dispatch({
+  //             //           type: "LOGIN_WITH_JWT",
+  //             //           payload: { loggedInUser, loggedInWith: "jwt" }
+  //             //         })
+
+  //             dispatch(studentLoginJwtAction(loggedInUser));
+
+  //           })
+  // },[])
+
   let username = "";
   const userObj = props.user.login.values;
 

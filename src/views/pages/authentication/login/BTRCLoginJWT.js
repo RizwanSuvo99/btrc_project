@@ -66,19 +66,6 @@ class Login extends React.Component {
           }
           this.setState({ progress: false });
         });
-
-      // fetching request
-
-      // fetch(`${rootUrl}auth/authenticate`, {
-      //   method: "POST",
-      //   headers: {
-      //     "access-control-allow-origin": "*",
-      //     "Content-type": "application/json; charset=UTF-8",
-      //   },
-      //   body: JSON.stringify(userDetails),
-      // })
-      //   .then((res) => res.json())
-      //   .then((data) => console.log(data));
     }
   };
 
@@ -171,106 +158,6 @@ class Login extends React.Component {
             </div>
           </Form>
           <br />
-
-          <span style={{ fontSize: "16px", fontWeight: "500" }}>
-            Or Login With
-          </span>
-
-          <div className="d-flex mt-4">
-            <div className="login-page-icon-style1 me-1">
-              <i className="fab fa-google"></i>
-            </div>
-
-            <div className="login-page-icon-style2 mx-1">
-              <i className="fab fa-apple"></i>
-            </div>
-
-            <div className="login-page-icon-style3 ms-1">
-              <i className="fab fa-facebook"></i>
-            </div>
-          </div>
-          <br />
-          <br />
-          <span
-            className=""
-            style={{ color: "#7f7f7f", fontSize: "16px", fontWeight: "500" }}
-          >
-            Don't have any account yet?
-          </span>
-
-          <br />
-          <span
-            className=""
-            style={{ color: "#7f7f7f", fontSize: "16px", fontWeight: "500" }}
-          >
-            Register as
-          </span>
-
-          <br />
-          <br />
-
-          <div className="d-flex">
-            <Link
-              to="/studentRegister"
-              style={{
-                color: "rgb(30 152 176)",
-                fontSize: "16px",
-                marginRight: "20px",
-                fontWeight: "600",
-              }}
-            >
-              Student
-            </Link>
-
-            <br />
-
-            <Link
-              to="/consultantRegister"
-              style={{
-                color: "rgb(30 152 176)",
-                fontSize: "16px",
-                fontWeight: "600",
-                marginRight: "20px",
-                textDecoration: "none",
-              }}
-            >
-              {" "}
-              Consultant
-            </Link>
-
-            <br />
-
-            <Link
-              to="/providerRegister"
-              style={{
-                color: "rgb(30 152 176)",
-                fontSize: "16px",
-                fontWeight: "600",
-                textDecoration: "none",
-              }}
-            >
-              {" "}
-              Provider
-            </Link>
-          </div>
-
-          <br />
-
-          <div className="d-flex justify-content-between">
-            <div
-              className=""
-              style={{ color: "#707070", fontSize: "13px", fontWeight: "400" }}
-            >
-              Privacy policy
-            </div>
-
-            <div
-              className=""
-              style={{ color: "#1E98B0", fontSize: "13px", fontWeight: "400" }}
-            >
-              UAPP © services Higher Education Group.
-            </div>
-          </div>
         </CardBody>
       </React.Fragment>
     );
