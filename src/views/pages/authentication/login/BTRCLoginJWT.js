@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { CardBody, Form, FormGroup, Input, Label } from "reactstrap";
+import { CardBody, Form, FormGroup, Input } from "reactstrap";
 // import { loginWithJWT } from "../../../../redux/actions/auth/loginActions"
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
@@ -72,57 +71,51 @@ class Login extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <CardBody className="pt-1">
+        <CardBody className="p-0">
           <Form
             action="/"
             onSubmit={this.handleLogin}
             className=""
             style={{ marginTop: "30px" }}
           >
-            <FormGroup className="form-label-group position-relative has-icon-left">
+            <FormGroup className="form-label-group has-icon-left">
+              <p style={{ fontSize: "18px", color: "#333" }}>Email Address</p>
               <Input
                 type="email"
-                placeholder="Email"
+                placeholder="Enter your email"
                 value={this.state.email}
                 onChange={(e) =>
                   this.setState({ email: e.target.value, emailerror: "" })
                 }
-                style={{ height: "calc(1.5em + 1.3rem + 2px)" }}
+                style={{
+                  height: "52px",
+                  background: "#e6e6e6",
+                  border: "1px solid #ccc",
+                  borderRadius: "8px",
+                }}
                 required
               />
-              <div className="form-control-position"></div>
-              <Label
-                style={{ fontSize: "18px", fontWeight: "600", top: "-35px" }}
-              >
-                Email
-              </Label>
-              {this.state.emailerror && (
-                <span className="text-danger">{this.state.emailerror}</span>
-              )}
             </FormGroup>
             <FormGroup
-              className="form-label-group position-relative has-icon-left"
+              className="form-label-group has-icon-left"
               style={{ marginTop: "30px" }}
             >
+              <p style={{ fontSize: "18px", color: "#333" }}>Password</p>
               <Input
                 type="password"
-                placeholder="Password"
+                placeholder="Enter your password"
                 value={this.state.password}
                 onChange={(e) =>
                   this.setState({ password: e.target.value, passwordError: "" })
                 }
-                style={{ height: "calc(1.5em + 1.3rem + 2px)" }}
+                style={{
+                  height: "52px",
+                  background: "#e6e6e6",
+                  border: "1px solid #ccc",
+                  borderRadius: "8px",
+                }}
                 required
               />
-              <div className="form-control-position"></div>
-              <Label
-                style={{ fontSize: "18px", fontWeight: "600", top: "-32px" }}
-              >
-                Password
-              </Label>
-              {this.state.passwordError && (
-                <span className="text-danger">{this.state.passwordError}</span>
-              )}
             </FormGroup>
             <div className="text-danger">
               <span>{this.state.error}</span>
@@ -134,13 +127,13 @@ class Login extends React.Component {
                     {this?.state?.progress ? (
                       <Spin indicator={this.antIcon} />
                     ) : (
-                      "Login"
+                      "Login Now"
                     )}
                   </button>
                 </div>
               </div>
 
-              <div className="col-md-6">
+              {/* <div className="col-md-6">
                 <div className="mt-3 float-right">
                   <Link
                     to="/pages/forgot-password"
@@ -154,7 +147,7 @@ class Login extends React.Component {
                     Forgot Password?
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           </Form>
           <br />

@@ -7,7 +7,7 @@ import {
   DropdownToggle,
   UncontrolledDropdown,
 } from "reactstrap";
-import user from "../../../assets/img/Uapp_fav.png";
+import user from "../../../assets/img/CCL_SiteIcon.png";
 import { rootUrl } from "../../../constants/constants";
 import { userTypes } from "../../../constants/userTypeConstant";
 import { history } from "../../../history";
@@ -19,42 +19,6 @@ const handleNavigation = (e, path) => {
 
 const userInfo = JSON.parse(localStorage.getItem("current_user"));
 const AuthStr = localStorage.getItem("token");
-
-// const redirectToProfile = () => {
-
-//   if ( userInfo?.userTypeId == userTypes?.AccountManager ||
-//     userInfo?.userTypeId == userTypes?.Editor ||
-//     userInfo?.userTypeId == userTypes?.AccountOfficer ||
-//     userInfo?.userTypeId == userTypes?.ComplianceManager ||
-//     userInfo?.userTypeId == userTypes?.FinanceManager) {
-//     history.push(`/staffProfile/${userInfo?.referenceId}`);
-//   }
-//   else if (userInfo?.userTypeId == userTypes?.AdmissionManager) {
-//     history.push(`/admissionManagerProfile/${userInfo?.referenceId}`);
-//   }
-//   else if (userInfo?.userTypeId == userTypes?.AdmissionOfficer) {
-//     history.push(`/admissionOfficerDetails/${userInfo?.referenceId}`);
-//   }
-//   else if (userInfo?.userTypeId == userTypes?.ProviderAdmin) {
-//     history.push(`/providerAdminProfile/${userInfo?.referenceId}`);
-//   }
-//   else if (userInfo?.userTypeId == userTypes?.BranchManager) {
-//     history.push(`/branchManagerProfile/${userInfo?.referenceId}`);//TODO
-//   }
-//   else if (userInfo?.userTypeId == userTypes?.Consultant) {
-//     history.push(`/consultantProfile/${userInfo?.referenceId}`);
-//   }
-//   else if (userInfo?.userTypeId == userTypes?.Student) {
-//     history.push(`/studentProfile/${userInfo?.referenceId}`);//TODO
-//   }
-//   else if (userInfo?.userTypeId == userTypes?.Provider) {
-//     history.push(`/providerDetails/${userInfo?.referenceId}`);//TODO
-//   }
-//   else {
-//     history.push('/');
-//   }
-
-// }
 
 const handleDate = (e) => {
   var datee = e;
@@ -87,31 +51,7 @@ const handleLogOut = (e) => {
       window.location.reload();
     });
 };
-// const handleLogOut = (e) => {
-//   e.preventDefault();
 
-//   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-//   console.log(userInfo);
-
-//   // Assuming `logOut` is your logout endpoint
-//   axios
-//     .post(
-//       logOut,
-//       {},
-//       {
-//         headers: {
-//           Authorization: `Bearer ${userInfo.token}`, // Fix the formatting here
-//         },
-//       }
-//     )
-//     .then((res) => {
-//       localStorage.removeItem("userInfo");
-//       window.location.href = "/"; // Redirect to the home page
-//     })
-//     .catch((error) => {
-//       console.error("Logout failed:", error);
-//     });
-// };
 const convertAccount = (e) => {
   axios
     .get(`${rootUrl}AccountSwitch/SwitchToConsultant`, {
@@ -296,60 +236,8 @@ class NavbarUser extends React.PureComponent {
           this.setState({ canSwitch: res?.data?.result });
         });
     }
-
-    //Emon Comment//
-    // axios.get(`${rootUrl}Notification/UserNotificationCount`,{
-    //   headers: {
-    //     authorization: AuthStr
-    //   }
-    // })
-    // .then(res => {
-
-    //   this.setState({notificationCount : res?.data})
-    // })
-
-    // axios.get(`${rootUrl}Notification/GetInitial`,{
-    //   headers: {
-    //     authorization: AuthStr
-    //   }
-    // })
-    // .then(res => {
-
-    //   this.setState({notificationData: res?.data?.result});
-
-    // })
-
-    // const newConnection = new HubConnectionBuilder()
-    //   .withUrl(`${rootUrl}notificationHub`)
-    //   .withAutomaticReconnect()
-    //   .build();
-
-    //  this.setState = {connection : newConnection};
-
-    // if (newConnection) {
-    //   newConnection.start().then((result) => {
-    //     newConnection.on("notificationHub", (message) => {
-    //       //  const updatedChat = [...latestChat.current];
-    //       // updatedChat.push(message);
-    //       if (message) {
-    //         this.countFunction();
-
-    //         this.initialFunction();
-    //       }
-    //       // this.setState = {chat: message}
-    //     });
-    //   });
-    // }
-    // Emon comment end//
   }
 
-  //  Code testing start
-
-  //  const [ connection, setConnection ] = useState(null);
-  //  const [ chat, setChat ] = useState('');
-  //  const latestChat = useRef(null);
-
-  //  latestChat.current = chat;
 
   countFunction = () => {
     axios

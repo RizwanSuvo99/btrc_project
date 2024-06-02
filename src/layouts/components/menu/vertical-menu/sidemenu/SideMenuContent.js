@@ -21,155 +21,6 @@ const initialState = {
       displayOrder: 1,
       children: null,
     },
-    // {
-    //   id: 4,
-    //   title: "User",
-    //   navLink: "/users",
-    //   type: "item",
-    //   icon: "fa-solid fa-user-group",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 2,
-    //   children: null,
-    // },
-    // {
-    //   id: 14,
-    //   title: "User2",
-    //   navLink: "/users2",
-    //   type: "item",
-    //   icon: "fa-solid fa-user-group",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 2,
-    //   children: null,
-    // },
-    // {
-    //   id: 2,
-    //   title: "Roles",
-    //   navLink: "/addRole",
-    //   type: "item",
-    //   icon: "fa-solid fa-chart-simple",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 1,
-    //   children: null,
-    // },
-    // {
-    //   id: 26,
-    //   title: "Rate Plan",
-    //   navLink: "/ratePlan",
-    //   type: "item",
-    //   icon: "fa-solid fa-chart-simple",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 1,
-    //   children: null,
-    // },
-    // {
-    //   id: 3,
-    //   title: "Permissions",
-    //   navLink: "/permissions",
-    //   type: "item",
-    //   icon: "fa-solid fa-chart-simple",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 1,
-    //   children: null,
-    // },
-
-    // {
-    //   id: 5,
-    //   title: "SIP Trunk",
-    //   navLink: "/siptrunk",
-    //   type: "item",
-    //   icon: "fa-solid fa-bars",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 3,
-    // },
-    // {
-    //   id: 6,
-    //   title: "Notification",
-    //   navLink: "",
-    //   type: "item",
-    //   icon: "fa-solid fa-bell",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 7,
-    // },
-    // {
-    //   id: 7,
-    //   title: "Sales",
-    //   navLink: "/sales",
-    //   type: "item",
-    //   icon: "fa-solid fa-dollar-sign",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 12,
-    // },
-    // {
-    //   id: 8,
-    //   title: "Calls",
-    //   navLink: "/calls",
-    //   type: "item",
-    //   icon: "fa-solid fa-phone",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 16,
-    //   children: null,
-    // },
-    // {
-    //   id: 9,
-    //   title: "Stickers",
-    //   navLink: "/studentList",
-    //   type: "item",
-    //   icon: "fa-solid fa-note-sticky",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 17,
-    //   children: null,
-    // },
-    // {
-    //   id: 10,
-    //   title: "Calling Cards",
-    //   navLink: "/callCard",
-    //   type: "item",
-    //   icon: "",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 17,
-    // },
-    // {
-    //   id: 11,
-    //   title: "Call Packages",
-    //   navLink: "/callPackages",
-    //   type: "item",
-    //   icon: "far fa-file",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 22,
-    //   children: null,
-    // },
-    // {
-    //   id: 12,
-    //   title: "services Gateways",
-    //   navLink: "",
-    //   type: "item",
-    //   icon: "fa-solid fa-envelope",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 23,
-    // },
-    // {
-    //   id: 13,
-    //   title: "Setting",
-    //   navLink: "",
-    //   type: "item",
-    //   icon: "fa-solid fa-gear",
-    //   parentId: null,
-    //   parentName: null,
-    //   displayOrder: 29,
-    // },
   ],
   flag: true,
   isHovered: false,
@@ -188,31 +39,10 @@ class SideMenuContent extends React.Component {
       history.push("/misc/not-authorized");
     };
 
-    //   const menuItems = get(`https://192.168.0.123:45455/api/MenuItem/Index`).then((action)=> {
-    //
-
-    //  })
-
     const userType = JSON.parse(localStorage.getItem("current_user"));
 
     const valueObj = JSON.parse(localStorage.getItem("menu"));
-
-    // if (valueObj) {
-    //   this.state.menu = valueObj;
-    // } else {
-    //   get(`RoleMenuItem/GetUserMenu`).then((action) => {
-    //     this.setState({ menu: action });
-    //   });
-    // }
   }
-
-  // componentDidMount(){
-  //   const menuItems = get(`https://192.168.0.123:45455/api/MenuItem/Index`)
-  //  menuItems.then((action)=> {
-  //    this.setState({menu: action})
-  //
-  //  })
-  // }
 
   handleGroupClick = (id, parent = null, type = "") => {
     let open_group = this.state.activeGroups;
@@ -311,8 +141,6 @@ class SideMenuContent extends React.Component {
 
   render() {
     const navigationConfig = this.state.menu;
-    // Loop over sidebar items
-    // eslint-disable-next-line
     const menuItems = navigationConfig?.map((item) => {
       const CustomAnchorTag = item.type === "external-link" ? `a` : Link;
       // checks if item has groupheader
@@ -465,6 +293,7 @@ class SideMenuContent extends React.Component {
         return this.redirectUnauthorized();
       }
     });
+
     return <React.Fragment>{menuItems}</React.Fragment>;
   }
 }

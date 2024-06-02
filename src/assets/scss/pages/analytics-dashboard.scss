@@ -1,3 +1,5 @@
+@import "../core/variables/variables";
+
 .analyticsDashboard {
   h4 {
     font-size: 21px;
@@ -14,6 +16,12 @@
     }
     .singleTable {
       margin-bottom: 24px;
+      .table_cell{
+        background-color: $primary;
+      }
+      .table__pagination{
+        color: $primary;
+      }
       h6 {
         margin-bottom: 10px;
       }

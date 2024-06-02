@@ -459,7 +459,6 @@
   tbody {
     font-size: 14px;
     font-weight: 500;
-    
   }
 }
 
@@ -1103,11 +1102,64 @@ flexbox-container2 h4 {
   cursor: pointer;
 }
 
+.loginPage {
+  background: linear-gradient(45deg, #d4deec, #f8f9f8);
+}
+
+.loginRight {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  & > div {
+    padding-inline: clamp(3rem, 5vw, 5rem) clamp(5rem, 10vw, 20vw);
+  }
+  input,
+  input::placeholder {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+  }
+}
+
 .login-img {
-  background-image: url("../img/Login.png");
-  background-size: contain;
+  background-image: url("../img/loginPageGlobe.png");
   background-repeat: no-repeat;
-  width: 100%;
+  background-position: center;
+  background-size: 85%;
+}
+@media (max-width: 1150px) {
+  .login-img {
+    background-image: none;
+  }
+  .loginPage {
+    position: relative;
+  }
+
+  .loginRight {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+@media (max-width: 430px) {
+  .loginRight > div {
+    padding-inline: 1.5rem;
+  }
+}
+@media (max-width: 430px) {
+  .loginRight {
+    top: 55%;
+  }
+}
+.site__logo {
+  margin-left: 5rem;
+  padding-top: 3rem;
+  width: 440px;
+  height: auto;
+  img {
+    object-fit: cover;
+    max-width: 100%;
+  }
 }
 
 .student-register-img {

@@ -11,7 +11,6 @@ import {
   collapseSidebar,
   hideScrollToTop,
 } from "../redux/actions/customizer/index";
-import Footer from "./components/footer/Footer";
 import Sidebar from "./components/menu/vertical-menu/Sidebar";
 import Navbar from "./components/navbar/Navbar";
 
@@ -292,8 +291,6 @@ class VerticalLayout extends PureComponent {
             {this.props.children}
           </div>
         </div>
-
-        <Footer {...footerProps} />
         {appProps.disableCustomizer !== true ? (
           <Customizer {...customizerProps} />
         ) : null}

@@ -7,7 +7,6 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import React, { useEffect, useState } from "react";
-import fetchData from "../../../apiServices/E1DataServices/GetE1Data";
 import E1DataServices from "../../../apiServices/E1DataServices/GetE1Data";
 
 export default function AnalyticsTable() {
@@ -74,17 +73,28 @@ export default function AnalyticsTable() {
 
   const rows = [...fetchedE1Data];
 
-  let total = {};
+  let total = {
+    icxName: "",
+    totalAssignmentE1: 0,
+    signalingCircuits: 0,
+    synchronizationCircuits: 0,
+    voiceCircuits: 0,
+    concurrentChannel: 0,
+    freeChannel: 0,
+    usage: 0,
+  };
 
-  rows.forEach((row) => {
-    Object.keys(row).forEach((key) => {
-      if (total[key]) {
-        total[key] += row[key];
-      } else {
-        total[key] = row[key];
-      }
-    });
-  });
+  for (let i = 0; i < rows.length; i++) {
+    total.icxName += rows[i].icxName;
+    total.totalAssignmentE1 += rows[i].totalAssignmentE1;
+    total.signalingCircuits += rows[i].signalingCircuits;
+    total.synchronizationCircuits += rows[i].synchronizationCircuits;
+    total.voiceCircuits += rows[i].voiceCircuits;
+    total.concurrentChannel += rows[i].concurrentChannel;
+    total.freeChannel += rows[i].freeChannel;
+    total.usage += rows[i].usage;
+  }
+
   total.icxName = "Sub Total";
   total = Object.values(total);
 
@@ -119,12 +129,12 @@ export default function AnalyticsTable() {
                 <TableCell
                   key={column.id}
                   sx={{
-                    backgroundColor: "#0095AD",
                     color: "white",
                     fontSize: "14px",
                     fontWeight: "600",
                     ...cellBorderStyle,
                   }}
+                  className="table_cell"
                 >
                   {column.label}
                 </TableCell>
@@ -167,10 +177,10 @@ export default function AnalyticsTable() {
         sx={{
           "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows":
             {
-              color: "#0095AD",
               marginTop: "13px",
             },
         }}
+        className="table__pagination"
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
         count={rows.length}
