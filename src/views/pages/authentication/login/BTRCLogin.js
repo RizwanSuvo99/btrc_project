@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "reactstrap";
-import UappLogo from "../../../../assets/img/CCL_Logo.png";
+import CCl_Logo from "../../../../assets/img/CCL_Logo.png";
 import "../../../../assets/scss/pages/authentication.scss";
 import BTRCLoginJWT from "./BTRCLoginJWT";
 
@@ -28,7 +28,7 @@ class BTRCLogin extends React.Component {
               >
                 <div className="flexbox-container">
                   <div className="site__logo">
-                    <img src={UappLogo} className="w-50" alt="site-logo" />
+                    <img src={CCl_Logo} className="w-50" alt="site-logo" />
                   </div>
                 </div>
               </Col>

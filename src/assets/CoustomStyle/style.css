@@ -63,9 +63,9 @@ body .custom-nav.content .coustom-wrapper.content-wrapper {
   li.dropdown-user
   .dropdown-menu-right
   .dropdown-item:active {
-  background: #1d94ab !important;
   color: #fff !important;
 }
+
 .text-uapp {
   color: #20a8d8;
 }
@@ -84,7 +84,7 @@ body .custom-nav.content .coustom-wrapper.content-wrapper {
 }
 
 .bg-dd {
-  background-color: #1d94ab;
+
   /* border: none; */
   /* height: 40px;
   padding: 5px 15px; */
@@ -96,7 +96,7 @@ body .custom-nav.content .coustom-wrapper.content-wrapper {
 }
 
 .bg-dd-1 {
-  background-color: #1d94ab;
+
   /* border: none; */
   height: 210px;
   overflow-y: scroll;
@@ -109,7 +109,6 @@ body .custom-nav.content .coustom-wrapper.content-wrapper {
 }
 
 .bg-dd-2 {
-  background-color: #1d94ab;
   /* border: none; */
   height: 110px;
   /* overflow-y: scroll; */
@@ -122,49 +121,25 @@ body .custom-nav.content .coustom-wrapper.content-wrapper {
 }
 
 .bg-dd-3 {
-  background-color: #1d94ab;
   /* border: none; */
   height: 185px;
-  /* overflow-y: scroll; */
-  /* padding: 5px 15px; */
+
   color: #ffffff;
-  /* font-size: 25px; */
-  /* font-weight: 300; */
-  /* margin-top: 10px;
-  margin-right: 10px; */
+
 }
 
 .bg-dd-3-1 {
-  background-color: #1d94ab;
-  /* border: none; */
   height: 200px;
-  /* overflow-y: scroll; */
-  /* padding: 5px 15px; */
+
   color: #ffffff;
-  /* font-size: 25px; */
-  /* font-weight: 300; */
-  /* margin-top: 10px;
-  margin-right: 10px; */
+
 }
 
 .bg-dd-4 {
   background-color: #ffffff !important;
   font-size: 25px !important;
   height: 60px !important;
-  color: #1d94ab !important;
 }
-
-/* Show form input in vertical center start */
-
-/* .flexbox-container2{
-  height: 100vh;
-} */
-
-/* Show form input in vertical center end */
-
-/* ALways keep footer in bottom start */
-
-/* ALways keep footer in bottom end */
 
 @media (max-width: 678px) {
   .show-max-678 {
@@ -231,7 +206,6 @@ body .custom-nav.content .coustom-wrapper.content-wrapper {
 }
 
 .main-menu.uapp-sidbar.menu-light .navigation li a {
-  color: #1d94ab;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.45;
@@ -242,14 +216,12 @@ body .custom-nav.content .coustom-wrapper.content-wrapper {
 }
 
 .uapp-sidbar.menu-light .navigation .navigation-header {
-  color: #1d94ab;
   line-height: 1.5;
   letter-spacing: 0.01rem;
   font-weight: 400;
 }
 
 .uapp-sidbar.menu-light .navigation .nav-item.uapp-nav-item.active a {
-  background: linear-gradient(118deg, #1d94ab, #1d94ab) !important;
   color: #fff;
   box-shadow: none !important;
   border-radius: 25px 0 0 25px;
@@ -261,7 +233,6 @@ body .custom-nav.content .coustom-wrapper.content-wrapper {
 
 [dir] .main-menu.menu-light .navigation > .uapp-nav-item.active > a {
   color: #fff !important;
-  background: #1d94ab;
   border-radius: 25px 0 0 25px;
 }
 
